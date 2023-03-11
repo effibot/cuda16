@@ -1,0 +1,62 @@
+{
+  "name": "docker-base",
+  "dockerComposeFile": ["docker-compose.yml"],
+  // Only start this service
+  "service": "cuda16",
+  "runServices": ["cuda16"],
+  // Configure the container's IDE
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "/bin/zsh",
+            "args": ["-l"]
+          }
+        },
+        "terminal.integrated.fontFamily": "MesloLGS NF",
+        "editor.autoIndent": "advanced",
+        "editor.defaultFormatter": null,
+        "editor.wordWrap": "on",
+        "python.pythonPath": "/home/dock/conda/bin/python",
+        "python.linting.pylintEnabled": true,
+        "python.linting.enabled": true,
+        "python.condaPath": "/home/dock/conda/bin/conda",
+        "python.defaultInterpreterPath": "/home/dock/conda/bin/python",
+        "python.analysis.inlayHints.pytestParameters": true,
+        "[python]": {
+          "editor.formatOnSave": true,
+          "editor.formatOnPaste": true
+        },
+        "python.formatting.provider": "black",
+        "python.terminal.activateEnvironment": false
+      },
+      "extensions": [
+        "aaron-bond.better-comments",
+        "donjayamanne.python-environment-manager",
+        "github.copilot",
+        "grapecity.gc-excelviewer",
+        "gruntfuggly.todo-tree",
+        "hediet.vscode-drawio",
+        "kevinrose.vsc-python-indent",
+        "ms-ceintl.vscode-language-pack-it",
+        "ms-python.isort",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "njpwerner.autodocstring",
+        "oderwat.indent-rainbow",
+        "phplasma.csv-to-table",
+        "shardulm94.trailing-spaces",
+        "wayou.vscode-todo-highlight",
+        "ms-python.python",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "ms-python.black-formatter"
+      ]
+    }
+  },
+  "remoteUser": "dock",
+  // Start the VS Code instance in the container's workspace
+  "workspaceFolder": "/home/dock/workspace",
+  // Creates a sleeping process that VSC uses to stop the container
+  "overrideCommand": true
+}
