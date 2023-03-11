@@ -90,7 +90,8 @@ RUN wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mamb
     find ${CONDA_DIR} -follow -type f -name '*.pyc' -delete && \
     conda clean --force-pkgs-dirs --all --yes && \
     mamba init zsh && mamba init bash && \
-    sudo chsh -s /bin/zsh ${USER}
+    sudo chsh -s /bin/zsh ${USER} && \
+    sudo chsh -s /bin/bash root
 
 # Start zsh
 WORKDIR ${HOME}
